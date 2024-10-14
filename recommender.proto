@@ -1,0 +1,44 @@
+syntax = "proto3";
+option go_package = "github.com/MumMumGoodBoy/recommender/proto";
+
+package proto;
+
+service RecommendService {
+    rpc AddEvent(AddEventReq) returns (Empty) {}
+    rpc RemoveEvent(RemoveEventReq) returns (Empty) {}
+    rpc GetFoodRecommendations(GetRecommendationsRequest) returns (GetRecommendationsResponse) {}
+}
+
+enum EventType {
+    VIEW = 0;
+    FAVORITE = 1;
+    RATING = 2;
+}
+
+message Empty {}
+
+message AddEventReq {
+    EventType event_type = 1;
+    int64 user_id = 2;
+    string item_id = 3;
+}
+
+message RemoveEventReq {
+    EventType event_type = 1;
+    int64 user_id = 2;
+    string item_id = 3;
+}
+
+message AddEventResp {
+    int64 event_id = 1;
+}
+
+message GetRecommendationsRequest {
+    int64 user_id = 1;
+    int32 limit = 2;
+    int32 offset = 3;
+}
+
+message GetRecommendationsResponse {
+    repeated string item_ids = 1;
+}

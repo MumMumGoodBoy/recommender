@@ -1,0 +1,9 @@
+[recommend.data_source]
+# The feedback types for positive events.
+positive_feedback_types = ["like", "favorite"]
+
+# The feedback types for read events.
+read_feedback_types = ["read"]
+
+[server]
+api_key = "RECOMMENDER"
