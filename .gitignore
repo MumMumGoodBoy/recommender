@@ -1,3 +1,4 @@
 internal/proto
 .env
 .goreload
+proto/*.pb.go
