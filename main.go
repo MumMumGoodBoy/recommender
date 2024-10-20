@@ -13,6 +13,7 @@ import (
 	"github.com/mummumgoodboy/recommender/proto"
 	"github.com/wagslane/go-rabbitmq"
 	"github.com/zhenghaoz/gorse/client"
+	"golang.org/x/exp/slog"
 	"google.golang.org/grpc"
 )
 
@@ -46,7 +47,14 @@ func main() {
 	if err != nil {
 		log.Panic("failed to listen to events", err)
 	}
-	defer close()
+	defer func() {
+		err := close()
+		if err != nil {
+			slog.Warn("failed to close event service",
+				"error", err,
+			)
+		}
+	}()
 
 	port, err := strconv.Atoi(os.Getenv("PORT"))
 	if err != nil {
@@ -61,5 +69,5 @@ func main() {
 	proto.RegisterRecommendServiceServer(server, recommendService)
 
 	log.Printf("Recommend service is running on port %d", port)
-	server.Serve(lis)
+	log.Fatal(server.Serve(lis))
 }
