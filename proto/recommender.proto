@@ -37,6 +37,7 @@ message GetRecommendationsRequest {
     int64 user_id = 1;
     int32 limit = 2;
     int32 offset = 3;
+    bool no_delay = 4; // true if used for tinder-like swiping feature
 }
 
 message GetRecommendationsResponse {

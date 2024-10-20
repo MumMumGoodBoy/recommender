@@ -93,7 +93,7 @@ func (r *RecommendService) RemoveEvent(ctx context.Context, req *proto.RemoveEve
 
 // GetFoodRecommendations implements proto.RecommendServiceServer.
 func (r *RecommendService) GetFoodRecommendations(ctx context.Context, req *proto.GetRecommendationsRequest) (*proto.GetRecommendationsResponse, error) {
-	if req.Limit > 20 {
+	if req.Limit > 50 {
 		req.Limit = 20
 	}
 
@@ -102,9 +102,13 @@ func (r *RecommendService) GetFoodRecommendations(ctx context.Context, req *prot
 		userId = "default"
 	}
 
+	delay := "5m"
+	if req.NoDelay {
+		delay = "0s"
+	}
 	ids, err := r.gorse.GetItemRecommend(ctx, userId, nil,
 		string(model.FeedbackRead),
-		"0h5m0s",
+		delay,
 		int(req.Limit),
 		int(req.Offset))
 	if err != nil {
