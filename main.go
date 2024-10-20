@@ -9,8 +9,8 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/mummumgoodboy/recommender/internal/event"
-	"github.com/mummumgoodboy/recommender/internal/proto"
 	"github.com/mummumgoodboy/recommender/internal/recommend"
+	"github.com/mummumgoodboy/recommender/proto"
 	"github.com/wagslane/go-rabbitmq"
 	"github.com/zhenghaoz/gorse/client"
 	"google.golang.org/grpc"

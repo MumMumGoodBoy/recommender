@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/mummumgoodboy/recommender/internal/model"
-	"github.com/mummumgoodboy/recommender/internal/proto"
+	"github.com/mummumgoodboy/recommender/proto"
 	"github.com/zhenghaoz/gorse/client"
 )
 

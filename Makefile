@@ -1,7 +1,7 @@
 generate:
-	protoc --go_out=./internal/proto --go_opt=paths=source_relative \
-	--go-grpc_out=./internal/proto --go-grpc_opt=paths=source_relative \
-    recommender.proto
+	protoc --go_out=. --go_opt=paths=source_relative \
+    --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+    proto/recommender.proto
 
 compose-up:
 	docker-compose up -d

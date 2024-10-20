@@ -8,9 +8,9 @@ import (
 	"strconv"
 
 	"github.com/mummumgoodboy/recommender/internal/model"
-	"github.com/mummumgoodboy/recommender/internal/proto"
 	"github.com/mummumgoodboy/recommender/internal/recommend"
 	"github.com/mummumgoodboy/recommender/pkg/closer"
+	"github.com/mummumgoodboy/recommender/proto"
 	"github.com/wagslane/go-rabbitmq"
 )
 

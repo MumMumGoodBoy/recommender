@@ -1,6 +1,6 @@
 package recommend
 
-import "github.com/mummumgoodboy/recommender/internal/proto"
+import "github.com/mummumgoodboy/recommender/proto"
 
 func convertEventTypes(eventType proto.EventType) string {
 	switch eventType {
