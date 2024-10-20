@@ -60,6 +60,6 @@ func main() {
 	server := grpc.NewServer()
 	proto.RegisterRecommendServiceServer(server, recommendService)
 
-	log.Printf("server listening at port %d", port)
+	log.Printf("Recommend service is running on port %d", port)
 	server.Serve(lis)
 }
