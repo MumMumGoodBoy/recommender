@@ -6,6 +6,7 @@ require (
 	github.com/joho/godotenv v1.5.1
 	github.com/wagslane/go-rabbitmq v0.14.2
 	github.com/zhenghaoz/gorse v0.5.0-alpha.0.20240601095743-f65896848c60
+	golang.org/x/exp v0.0.0-20241009180824-f66d83c29e7c
 	google.golang.org/grpc v1.67.1
 	google.golang.org/protobuf v1.34.2
 )
