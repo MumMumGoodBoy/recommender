@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"log/slog"
 	"net"
 	"os"
 	"strconv"
@@ -13,7 +14,6 @@ import (
 	"github.com/mummumgoodboy/recommender/proto"
 	"github.com/wagslane/go-rabbitmq"
 	"github.com/zhenghaoz/gorse/client"
-	"golang.org/x/exp/slog"
 	"google.golang.org/grpc"
 )
 

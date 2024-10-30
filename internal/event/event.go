@@ -98,7 +98,7 @@ func (e *EventService) handleReviewEvent(d rabbitmq.Delivery) rabbitmq.Action {
 			_, err := e.RecommendService.RemoveEvent(ctx, &proto.RemoveEventReq{
 				EventType: proto.EventType_RATING,
 				UserId:    int64(data.ReviewerId),
-				ItemId:    data.RestaurantId,
+				ItemId:    data.FoodId,
 			})
 			if err != nil {
 				slog.Error("failed to remove review event", "error", err)
@@ -109,7 +109,7 @@ func (e *EventService) handleReviewEvent(d rabbitmq.Delivery) rabbitmq.Action {
 		_, err := e.RecommendService.AddEvent(ctx, &proto.AddEventReq{
 			EventType: proto.EventType_RATING,
 			UserId:    int64(data.ReviewerId),
-			ItemId:    data.RestaurantId,
+			ItemId:    data.FoodId,
 		})
 		if err != nil {
 			slog.Error("failed to add review event", "error", err)
@@ -121,7 +121,7 @@ func (e *EventService) handleReviewEvent(d rabbitmq.Delivery) rabbitmq.Action {
 		_, err := e.RecommendService.RemoveEvent(ctx, &proto.RemoveEventReq{
 			EventType: proto.EventType_RATING,
 			UserId:    int64(data.ReviewerId),
-			ItemId:    data.RestaurantId,
+			ItemId:    data.FoodId,
 		})
 		if err != nil {
 			slog.Error("failed to remove review event", "error", err)
